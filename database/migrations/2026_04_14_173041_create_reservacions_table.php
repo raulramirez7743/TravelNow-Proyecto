@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::dropIfExists('reservacions'); // Limpiar tabla corrupta del intento anterior
+
         Schema::create('reservacions', function (Blueprint $table) {
             $table->id();
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
-            $table->foreignId('id_usuario')->constrained('usuarios');
+            $table->foreignId('id_usuario')->references('id_usuario')->on('usuarios');
             $table->foreignId('id_habitacion')->constrained('habitacions');
             $table->foreignId('id_vuelo')->nullable()->constrained('vuelos');
             $table->timestamps(); // ✅ AGREGADO
