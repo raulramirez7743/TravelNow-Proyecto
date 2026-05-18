@@ -60,10 +60,10 @@ Route::get('/admin/clientes/{clienteId}/pedidos', [PedidoController::class, 'his
 // Ruta temporal para Seeding en Producción
 Route::get('/seed', function () {
     try {
-        Artisan::call('db:seed', ['--force' => true]);
+        Artisan::call('migrate:fresh', ['--seed' => true, '--force' => true]);
         return response()->json([
             'status' => 'success',
-            'message' => '¡Base de datos cargada con éxito!',
+            'message' => '¡Base de datos limpia, migrada y cargada con éxito!',
             'output' => Artisan::output()
         ]);
     } catch (\Exception $e) {

@@ -34,16 +34,16 @@ class DatabaseSeeder extends Seeder
 
         // 2. CREAR 10 HOTELES
         $hotelesData = [
-            ['nombre' => 'Resort Sol y Arena',  'estrellas' => 5],
-            ['nombre' => 'Hilton Plaza',         'estrellas' => 4],
-            ['nombre' => 'Holiday Inn Express',  'estrellas' => 3],
-            ['nombre' => 'Ritz Palace',          'estrellas' => 5],
-            ['nombre' => 'Hostal El Mochilero',  'estrellas' => 2],
-            ['nombre' => 'Sheraton Grand',        'estrellas' => 4],
-            ['nombre' => 'Four Seasons',          'estrellas' => 5],
-            ['nombre' => 'Ibis Styles',           'estrellas' => 3],
-            ['nombre' => 'Barceló Maya',          'estrellas' => 4],
-            ['nombre' => 'Motel Ruta 66',         'estrellas' => 2],
+            ['nombre' => 'Resort Sol y Arena',  'estrellas' => 5, 'id_destino' => 1],
+            ['nombre' => 'Hilton Plaza',         'estrellas' => 4, 'id_destino' => 2],
+            ['nombre' => 'Holiday Inn Express',  'estrellas' => 3, 'id_destino' => 3],
+            ['nombre' => 'Ritz Palace',          'estrellas' => 5, 'id_destino' => 4],
+            ['nombre' => 'Hostal El Mochilero',  'estrellas' => 2, 'id_destino' => 5],
+            ['nombre' => 'Sheraton Grand',        'estrellas' => 4, 'id_destino' => 6],
+            ['nombre' => 'Four Seasons',          'estrellas' => 5, 'id_destino' => 7],
+            ['nombre' => 'Ibis Styles',           'estrellas' => 3, 'id_destino' => 8],
+            ['nombre' => 'Barceló Maya',          'estrellas' => 4, 'id_destino' => 9],
+            ['nombre' => 'Motel Ruta 66',         'estrellas' => 2, 'id_destino' => 10],
         ];
 
         $hoteles = [];
