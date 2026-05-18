@@ -13,7 +13,7 @@ class PedidoController extends Controller
 {
     protected function apiUrl(): string
     {
-        return rtrim(env('API_URL', 'http://127.0.0.1:8000/api'), '/') . '/admin/pedidos';
+        return rtrim(config('app.api_url', 'http://127.0.0.1:8000/api'), '/') . '/admin/pedidos';
     }
 
     /**
@@ -56,7 +56,7 @@ class PedidoController extends Controller
         ]);
 
         try {
-            $baseUrl = rtrim(env('API_URL', 'http://127.0.0.1:8000/api'), '/');
+            $baseUrl = rtrim(config('app.api_url', 'http://127.0.0.1:8000/api'), '/');
             $response = Http::put("{$baseUrl}/admin/pedidos/{$id}/estado", $request->only([
                 'estado', 'codigo_transaccion',
             ]));
@@ -73,7 +73,7 @@ class PedidoController extends Controller
     public function cancelar($id)
     {
         try {
-            $baseUrl = rtrim(env('API_URL', 'http://127.0.0.1:8000/api'), '/');
+            $baseUrl = rtrim(config('app.api_url', 'http://127.0.0.1:8000/api'), '/');
             $response = Http::put("{$baseUrl}/admin/pedidos/{$id}/cancelar");
             return response()->json($response->json(), $response->status());
         } catch (\Exception $e) {
@@ -88,7 +88,7 @@ class PedidoController extends Controller
     public function historialCliente($clienteId)
     {
         try {
-            $baseUrl = rtrim(env('API_URL', 'http://127.0.0.1:8000/api'), '/');
+            $baseUrl = rtrim(config('app.api_url', 'http://127.0.0.1:8000/api'), '/');
             $response = Http::get("{$baseUrl}/admin/clientes/{$clienteId}/pedidos");
             return response()->json($response->json(), $response->status());
         } catch (\Exception $e) {

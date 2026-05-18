@@ -7,12 +7,12 @@ use Illuminate\Support\Facades\Http;
 
 class AuthController extends Controller
 {
-    // ✅ CORREGIDO: Lee desde env('TRAVELNOW_API_URL') — funciona en local y producción
+    // ✅ CORREGIDO: Lee desde config('app.travelnow_api_url') — funciona con caché en producción
     private $apiUrl;
 
     public function __construct()
     {
-        $this->apiUrl = rtrim(env('TRAVELNOW_API_URL', 'http://127.0.0.1:8000/api'), '/') . '/cliente';
+        $this->apiUrl = rtrim(config('app.travelnow_api_url', 'http://127.0.0.1:8000/api'), '/') . '/cliente';
     }
 
     public function showLogin()

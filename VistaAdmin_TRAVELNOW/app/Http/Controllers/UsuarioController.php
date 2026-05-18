@@ -10,7 +10,7 @@ class UsuarioController extends Controller
     // ✅ CORREGIDO: Apuntaba a 8001 (sí mismo). Ahora apunta al Core (8000)
     protected function apiUrl(): string
     {
-        return rtrim(env('API_URL', 'http://127.0.0.1:8000/api'), '/') . '/usuarios';
+        return rtrim(config('app.api_url', 'http://127.0.0.1:8000/api'), '/') . '/usuarios';
     }
 
     public function index()

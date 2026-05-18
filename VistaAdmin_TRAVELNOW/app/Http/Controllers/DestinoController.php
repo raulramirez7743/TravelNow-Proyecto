@@ -10,7 +10,7 @@ class DestinoController extends Controller
     // ✅ CORREGIDO: Lee la URL desde .env (API_URL), consistente con los demás controllers
     protected function apiUrl(): string
     {
-        return rtrim(env('API_URL', 'http://127.0.0.1:8000/api'), '/') . '/destinos';
+        return rtrim(config('app.api_url', 'http://127.0.0.1:8000/api'), '/') . '/destinos';
     }
 
     public function index()

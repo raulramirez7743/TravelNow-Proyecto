@@ -10,7 +10,7 @@ class VueloController extends Controller
     // ✅ CORREGIDO: Lee la URL desde .env (API_URL), no hardcodeada
     protected function apiUrl(): string
     {
-        return rtrim(env('API_URL', 'http://127.0.0.1:8000/api'), '/') . '/vuelos';
+        return rtrim(config('app.api_url', 'http://127.0.0.1:8000/api'), '/') . '/vuelos';
     }
 
     public function index()

@@ -765,7 +765,7 @@
 // ============================================================
 // CONFIG - Cambia esta URL por la de tu API de ADMIN_TRAVELNOW
 // ============================================================
-const API_BASE = "{{ rtrim(env('API_URL', 'http://127.0.0.1:8000/api'), '/') }}";
+const API_BASE = "{{ rtrim(config('app.api_url', 'http://127.0.0.1:8000/api'), '/') }}";
 
 // Estado local (simula respuesta de la API para demo sin conexión)
 const localData = {

@@ -123,4 +123,7 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    // URL de la API Core (TravelNow API)
+    'travelnow_api_url' => env('TRAVELNOW_API_URL', 'http://127.0.0.1:8000/api'),
+
 ];
