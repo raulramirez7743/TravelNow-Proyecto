@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 use App\Http\Controllers\DestinoController;
 use App\Http\Controllers\HotelController;
@@ -55,3 +56,20 @@ Route::get('/admin/pedidos/{id}', [PedidoController::class, 'showAdmin']);
 Route::put('/admin/pedidos/{id}/cancelar', [PedidoController::class, 'cancelAdmin']);
 Route::put('/admin/pedidos/{id}/estado', [PedidoController::class, 'updateStatusAdmin']); // ✅ NUEVO
 Route::get('/admin/clientes/{clienteId}/pedidos', [PedidoController::class, 'historialClienteAdmin']);
+
+// Ruta temporal para Seeding en Producción
+Route::get('/seed', function () {
+    try {
+        Artisan::call('db:seed', ['--force' => true]);
+        return response()->json([
+            'status' => 'success',
+            'message' => '¡Base de datos cargada con éxito!',
+            'output' => Artisan::output()
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'status' => 'error',
+            'message' => $e->getMessage()
+        ], 500);
+    }
+});
